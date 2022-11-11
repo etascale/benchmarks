@@ -1,0 +1,10 @@
+mcc_*.c
+results
+*out
+TRACE.mpits
+set-0
+predict.prv
+predict.pcf
+predict.row
+run_*
+.gpi2.* 

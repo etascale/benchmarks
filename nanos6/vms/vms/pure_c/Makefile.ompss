@@ -1,0 +1,7 @@
+
+CC = mcc -DUSE_OMPSS --ompss-2 -k
+CXX = g++
+LINK = mcxx --ompss-2
+OUTPUTDIR ?= ompss
+
+include Makefile.plain
