@@ -1,0 +1,33 @@
+
+CXX=mcxx
+#ERR_CHK=-DERR_CHK
+CXXFLAGS += --ompss -g -Wno-deprecated -Wall -O3 --no-copy-deps
+
+TARGET   = fluidanimate-ompss
+OBJS     = ompss-multideps-nobar.o cellpool.o
+
+# To enable visualization comment out the following lines (don't do this for benchmarking)
+#OBJS     += fluidview.o
+#CXXFLAGS += -DENABLE_VISUALIZATION
+#LIBS     += -lglut
+
+all: ompss fluidcmp
+
+ompss: $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) $(LDFLAGS) $(LIBS) -o $(TARGET)
+
+%.o : %.cpp
+	$(CXX) $(CXXFLAGS) -D_GNU_SOURCE -D_XOPEN_SOURCE=600 -c $<
+
+fluidcmp: fluidcmp.cpp
+	rm -rf fluidcmp
+	$(CXX) fluidcmp.cpp -o fluidcmp
+clean:
+	rm -rf $(TARGET) 
+	rm -rf fluidcmp
+	rm -rf $(OBJ)
+	
+install:
+	mkdir -p ../bin
+	cp -f $(TARGET) ../bin
+	cp -f fluidcmp ../bin
