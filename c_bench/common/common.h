@@ -1,0 +1,6 @@
+#ifndef __OMPSS_CLUSTER_BENCHMARKS_COMMON_H__
+#define __OMPSS_CLUSTER_BENCHMARKS_COMMON_H__
+
+#include "memory.h"
+
+#endif /* __OMPSS_CLUSTER_BENCHMARKS_COMMON_H__ */

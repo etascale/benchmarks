@@ -1,0 +1,59 @@
+{
+	"benchmark": {
+		"name": "matvec_weak",
+		"description": "Matrix-Vector multiplication with weak accesses",
+		"path": "${CMAKE_INSTALL_PREFIX}/bin/matvec_weak",
+		"programming_model": "ompss"
+	},
+	"experiment": {
+		"type": "strong",
+		"repetitions": 5,
+		"debug": true,
+		"hardware" : {
+			"nodes" : [1, 2, 4, 8, 16],
+			"cpus" : [16],
+			"cartesian" : true
+		},
+		"modules_load" : ["impi/2018.1", "ompss/cluster"],
+		"modules_unload" : ["openmpi"],
+		
+		"configurations" : [
+			{
+				"args" : ["65536", "65536", "64", "4096", "10"],
+				"distributed_memory" : "40GB",
+				"local_memory" : "10GB",
+				"time_limit_minutes" : 4
+			},
+			{
+				"args" : ["65536", "65536", "128", "4096", "10"],
+				"distributed_memory" : "40GB",
+				"local_memory" : "10GB",
+				"time_limit_minutes" : 4
+			},
+			{
+				"args" : ["65536", "65536", "256", "4096", "10"],
+				"distributed_memory" : "40GB",
+				"local_memory" : "10GB",
+				"time_limit_minutes" : 4
+			},
+			{
+				"args" : ["65536", "65536", "512", "4096", "10"],
+				"distributed_memory" : "40GB",
+				"local_memory" : "10GB",
+				"time_limit_minutes" : 4
+			},
+			{
+				"args" : ["65536", "65536", "1024", "4096", "10"],
+				"distributed_memory" : "40GB",
+				"local_memory" : "10GB",
+				"time_limit_minutes" : 4
+			},
+			{
+				"args" : ["65536", "65536", "2048", "4096", "10"],
+				"distributed_memory" : "40GB",
+				"local_memory" : "10GB",
+				"time_limit_minutes" : 4
+			}
+		]
+	}
+}
