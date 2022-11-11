@@ -1,0 +1,4 @@
+CFLAGS += -fopenmp -DUSE_OPENMP 
+OUTPUTDIR ?= omp
+
+include Makefile.plain
