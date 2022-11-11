@@ -1,0 +1,6 @@
+#!/bin/bash
+# gcc-serial-gprof.bldconf - configuration file for PARSEC with profiling information
+
+source ${PARSECDIR}/pkgs/apps/facesim/parsec/gcc.bldconf
+
+build_env="version=serial PHYSBAM=${PARSECDIR}/pkgs/apps/facesim/obj/${PARSECPLAT} CXXFLAGS=-pg -O0"
