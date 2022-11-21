@@ -124,7 +124,6 @@ int main(int argc, char *argv[])
 		init(begM, endM, y, 0);
 		init(begN, endN, x, 1);
 		
-		#pragma omp for schedule(static)
 		for (size_t i = begM; i < endM; ++i) {
 			init(0, N, &A[i * N], 2);
 		}
